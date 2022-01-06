@@ -14,7 +14,7 @@ function criaTarefa() {
 }
 criarButton.addEventListener('click', criaTarefa);
 
-// Requisito 7 - pinta tarefa selecionada
+// Requisito 7 e 8 - pinta tarefa selecionada
 
 function selecionaTarefa(event) {
   for (let index = 0; index < tarefas.length; index += 1) {
@@ -24,3 +24,16 @@ function selecionaTarefa(event) {
 }
 
 listaDeTarefas.addEventListener('click', selecionaTarefa);
+
+// Requisito 9 - risca a tarefa finalizada com dblclick
+// verificar se um elemento possui uma classe "x"  -> https://www.ti-enxame.com/pt/javascript/verificar-se-um-elemento-contem-uma-classe-em-javascript/973105996/
+
+function completedMark(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+listaDeTarefas.addEventListener('dblclick', completedMark);
