@@ -2,6 +2,7 @@ const criarButton = document.getElementById('criar-tarefa');
 const listaDeTarefas = document.getElementById('lista-tarefas');
 const input = document.getElementById('texto-tarefa');
 const tarefas = listaDeTarefas.children;
+const apagarButton = document.getElementById('apaga-tudo');
 
 // Requisito 5 e 6 - adiciona tarefa, ordenada
 // como pegar o valor do input ->   https://www.horadecodar.com.br/2020/12/15/como-pegar-valor-de-input-com-javascript/
@@ -37,3 +38,10 @@ function completedMark(event) {
 }
 
 listaDeTarefas.addEventListener('dblclick', completedMark);
+
+// Requisito 10 - botão que apaga as tarefas
+
+function apagaTudo() {
+  listaDeTarefas.innerHTML = '';
+}
+apagarButton.addEventListener('click', apagaTudo);
