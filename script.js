@@ -51,13 +51,22 @@ apagarButton.addEventListener('click', apagaTudo);
 
 // Requisito 11 - remover tarefa finalizada
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
+// classList.contains()  ou  className.includes()
+// usar o FOR invertido!!! dica do Gabriel Branco
+
+// function tarefaConcluida() {
+//   for (let index = 0; index <= tarefas.length; index += 1) {
+//     if (tarefas[index].classList.contains('completed')) {
+//       tarefas[index].remove();
+//     }
+//   }
+// }
 
 function tarefaConcluida() {
-  for (let index = 0; index < tarefas.length; index += 1) {
+  for (let index = tarefas.length - 1; index >= 0; index -= 1) {
     if (tarefas[index].classList.contains('completed')) {
-      tarefas[index].remove();
+      listaDeTarefas.removeChild(tarefas[index]);
     }
   }
 }
-
 finalizarButton.addEventListener('click', tarefaConcluida);
