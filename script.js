@@ -3,6 +3,7 @@ const listaDeTarefas = document.getElementById('lista-tarefas');
 const input = document.getElementById('texto-tarefa');
 const tarefas = listaDeTarefas.children;
 const apagarButton = document.getElementById('apaga-tudo');
+const finalizarButton = document.getElementById('remover-finalizados');
 
 // Requisito 5 e 6 - adiciona tarefa, ordenada
 // como pegar o valor do input ->   https://www.horadecodar.com.br/2020/12/15/como-pegar-valor-de-input-com-javascript/
@@ -40,8 +41,23 @@ function completedMark(event) {
 listaDeTarefas.addEventListener('dblclick', completedMark);
 
 // Requisito 10 - botão que apaga as tarefas
+// método do Paulo Porto! e também teve o mesmo código no projeto da academia de lógica 6.2 (https://github.com/MathheusGuedes/Academia-de-Logica-6.2-Rubric) / script.js
+// outra forma -> https://pt.stackoverflow.com/questions/4605/remover-elemento-da-p%C3%A1gina-com-javascript
 
 function apagaTudo() {
   listaDeTarefas.innerHTML = '';
 }
 apagarButton.addEventListener('click', apagaTudo);
+
+// Requisito 11 - remover tarefa finalizada
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
+
+function tarefaConcluida() {
+  for (let index = 0; index < tarefas.length; index += 1) {
+    if (tarefas[index].classList.contains('completed')) {
+      tarefas[index].remove();
+    }
+  }
+}
+
+finalizarButton.addEventListener('click', tarefaConcluida);
